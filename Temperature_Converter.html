@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperture Converter</title>
+    <style>
+          *{
+            margin:0;
+            padding: 0;
+        }
+        body{
+            Background-color: black;
+            color: white;
+            border: white solid;
+            padding: 20px;
+            padding-right: 120px;
+            padding-left: 120px;
+           border-width: 15px;   
+           height: 100%;
+        }
+        h1{
+            font-size: 70px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            border: white dashed 5px;
+        }
+        #container{
+            border: rgb(43, 233, 201) solid 5px;
+            text-align: center;
+            padding: 120px;
+        }
+        label{        
+            /* border: white solid;   */
+            font-size: 45px;
+        }
+        .inp{
+            font-size: 25px;
+            margin: 20px;
+        }
+        .get{
+            margin-top: 1rem;
+            border: white solid;
+            font-style: italic;
+        }
+
+       .nav1{
+          list-style: none;
+          display: flex;
+          font-size: 25px;   
+          width: 40%;
+       }
+
+       .o{
+           cursor: pointer;
+            margin: auto;
+       }
+       .o a{
+           text-decoration: none;
+           color: white;
+       }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <ul class="nav1">
+            <li class="o"><a href="index.html">Home</a></li>
+            <li class="o"><a href=""> About</a></li>
+        </ul>
+    </nav>
+    <div id="container">
+    <h1><u>Temperature Converter</u></h1>
+        <div class="get">
+            <label >Celsius</label><br>
+            <input type="number" value="0" id="cel" class="inp">
+        </div>
+        <div class="get">
+            <label>Fahrenheit</label><br>
+            <input type="number" value="32" id="fah" class="inp">
+        </div>
+    </div>
+    <script>
+        var cel=document.getElementById("cel");
+        var fah=document.getElementById("fah");
+
+        cel.addEventListener('input',function(){
+            let c=this.value;
+            let f=(c*9/5)+32;
+            if(!Number.isInteger(f))
+            {
+                f=f.toFixed(4);
+            }
+            fah.value=f;
+        });
+        fah.addEventListener('input',function(){
+           let f=this.value;
+            let c=(f-32)*5/9;
+            if(!Number.isInteger(c))
+            {
+                c=c.toFixed(4);
+            }
+            cel.value=c;
+        });
+    </script>
+</body>
+</html>
